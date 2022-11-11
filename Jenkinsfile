@@ -1,7 +1,7 @@
 pipeline {
     agent {label "maven"}
     stages {
-        stage('git') {
+        stage('Clone the repo') {
             steps {
                 echo 'clone the repo'
                 sh 'rm -fr html'
@@ -16,3 +16,8 @@ pipeline {
         stage('Check website is up') {
             steps {
                 echo 'Check website is up'
+                
+            }
+        }
+    }
+}
