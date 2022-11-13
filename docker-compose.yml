@@ -31,7 +31,7 @@ services:
 #    restart: on-failure
   
   nexus:
-    image: sonatype/nexus:latest
+    image: sonatype/nexus3
     container_name: nexus
     ports:
      - 8081:8081
