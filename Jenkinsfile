@@ -12,12 +12,7 @@ pipeline {
         }
        
        
-        stage('Check website is up') {
-            steps {
-                echo 'Check website is up'
-                
-            }           
-        }
+   
         
         
         stage('MNV CLEAN') {
@@ -25,12 +20,10 @@ pipeline {
                 sh 'mvn clean'
             }
         }
-       stage('MVN COMPILE') {
-            steps {
-                sh 'mvn compile'
-            }
-        }
+       
         
+        
+             
         
     }
 }
