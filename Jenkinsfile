@@ -27,6 +27,12 @@ pipeline {
             }
         }
         
+        stage ('créer artifact') {
+            steps {
+                sh "mvn pacakge"
+            }
+        }
+        
         
              
         
