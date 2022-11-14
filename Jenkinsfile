@@ -34,7 +34,12 @@ pipeline {
         }
         
         
-             
+        stage('BUILDING IMAGE'){
+          steps {
+            sh 'ls target/'
+            sh 'docker build -t achatapp .'
+             }
+             } 
         
     }
 }
