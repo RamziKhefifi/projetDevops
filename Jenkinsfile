@@ -16,7 +16,21 @@ pipeline {
             steps {
                 echo 'Check website is up'
                 
+            }           
+        }
+        
+        
+        stage('MNV CLEAN') {
+            steps {
+                sh 'mvn clean'
             }
         }
+       stage('MVN COMPILE') {
+            steps {
+                sh 'mvn compile'
+            }
+        }
+        
+        
     }
 }
