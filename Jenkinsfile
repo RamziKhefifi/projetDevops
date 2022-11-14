@@ -29,7 +29,7 @@ pipeline {
         
         stage ('créer artifact') {
             steps {
-                sh "mvn pacakge"
+                sh "mvn package"
             }
         }
         
