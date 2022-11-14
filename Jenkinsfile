@@ -5,7 +5,7 @@ pipeline {
             steps {
                 echo 'clone the repo'
                 sh 'rm -fr html'
-                git pull    
+                git pull  https://github.com/RamziKhefifi/projetDevops.git   
                 
                
             }
