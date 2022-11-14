@@ -3,10 +3,10 @@ pipeline {
     stages {
         stage('Clone the repo') {
             steps {
-                echo 'clone the repo'
+                echo 'clone the repo';
                 git branch: 'main',
 				sh 'rm -fr html'
-                sh 'git pull '
+                sh 'git pull'
                 
                 
                
