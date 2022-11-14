@@ -6,7 +6,7 @@ pipeline {
                 echo 'pulling...';
                 git branch :'main' ,
            
-                url : 'https://github.com/RamziKhefifi/projetDevops.git',
+                url : 'https://github.com/RamziKhefifi/projetDevops.git'
                 //credentialsId: 'accgithubjenkins';
             }
         }
