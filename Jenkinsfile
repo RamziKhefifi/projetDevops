@@ -4,7 +4,8 @@ pipeline {
         stage('Clone the repo') {
             steps {
                 echo 'clone the repo'
-                sh 'rm -fr html'
+                git branch: 'main',
+				sh 'rm -fr html'
                 sh 'git pull '
                 
                 
