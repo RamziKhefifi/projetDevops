@@ -1,17 +1,15 @@
 pipeline {
     agent {label "maven"}
     stages {
-        stage('Clone the repo') {
+          stage ('Git') {
             steps {
-                echo 'clone the repo';
-                git branch: 'main',
-				sh 'rm -fr html'
-                sh 'git pull'
-                
-                
-               
+                echo 'pulling...';
+                git branch :'main' ,
+           
+                url : 'https://github.com/RamziKhefifi/projetDevops.git'
             }
         }
+       
        
         stage('Check website is up') {
             steps {
