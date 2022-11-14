@@ -7,7 +7,7 @@ pipeline {
                 git branch :'main' ,
            
                 url : 'https://github.com/RamziKhefifi/projetDevops.git',
-                credentialsId: 'accgithubjenkins';
+                //credentialsId: 'accgithubjenkins';
             }
         }
        
