@@ -1,50 +1,39 @@
-version: '3.7'
-
+version: '3.1'
 services:
-  mysqldb:
-    container_name: mysqldb
-    image: mysql:8
-    restart: unless-stopped
-    environment:
-      MYSQL_ROOT_PASSWORD: root      
-    volumes:
-      - /home/vagrant/mysqldata:/var/lib/mysql
-  
 
-  spring_app:
-    image: "tpachat"
+  devops-achat:
     container_name: tpachat
-    restart: unless-stopped
+    image: "tpachat"
+    build: .
+    networks:
+      - test_default   
     ports:
-      - 9091:9091
+      - "8089:8089"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://devops-achat-mysql:3306/achatdb?useSSL=false
+      - MYSQL_PASSWORD=root
+      - MYSQL_DATABASE=achatdb
+    
     depends_on:
       - mysqldb
-  
-#  jenkins:
-#    image: jenkinsci/blueocean:latest
-#    container_name: jenkins
-#    ports:
-#     - 8080:8080
-#    volumes:
-#      - /home/vagrant/jenkins:/var/jenkins_home
-#      - ../../var/run/docker.sock:/var/run/docker.sock
-#    restart: on-failure
-  
-#  nexus:
-#    image: sonatype/nexus3
-#    container_name: nexus
-#    ports:
-#     - 8081:8081
-#     - 8088:8088
-#    volumes:
-#      - /home/vagrant/nexus/nexus-data:/sonatype-work
-#    restart: on-failure
-    
-#  sonar:
-#    image: sonarqube
-#    container_name: sonar
-#    ports:
-#     - 9000:9000
-#    volumes:
-#      - /home/vagrant/sonarqube/data:/opt/sonarqube/data
-#    restart: on-failure
+   
+  mysqldb:
+    container_name: achat-mysql_2
+    image: "mysql:8"
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=achatdb
+      - MYSQL_PASSWORD=root
+    ports:
+      - 3307:3306
+    volumes:
+      - /home/vagrant/nexus/nexus-data:/sonatype-work       
+    networks:
+      - mynetwork   
+
+   
+
+volumes:
+  /home/vagrant/nexus/nexus-data:/sonatype-work:
+networks:
+  mynetwork:
