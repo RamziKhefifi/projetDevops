@@ -20,6 +20,18 @@ pipeline {
          } 
         }
        
+        stage ('Maven Compile') {
+            steps {
+
+                sh "mvn compile"
+            }
+        }
+        stage('Build the artifact'){
+            steps{
+                sh "mvn package"
+            }
+            }
+      
        
    
         
