@@ -57,7 +57,7 @@ pipeline {
 		stage('Push') {
 
 			steps {
-			    sh 'docker tag ramzikhefifi/tpachat'
+			    sh 'docker tag tpachat ramzikhefifi/tpachat'
                 sh 'docker push ramzikhefifi/tpachat'
 				
 			}
