@@ -1,34 +1,34 @@
 version: '3.7'
 
 services:
-#  mysqldb:
-#    container_name: mysqldb
-#    image: mysql:8
-#    restart: unless-stopped
-#    environment:
-#      MYSQL_ROOT_PASSWORD: root      
-#    volumes:
-#      - /home/vagrant/mysqldata:/var/lib/mysql
+  mysqldb:
+    container_name: mysqldb
+    image: mysql:8
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: root      
+    volumes:
+      - /home/vagrant/mysqldata:/var/lib/mysql
   
 
-#  spring_app:
-#    image: "achatproject"
-#    container_name: achatproject
-#    restart: unless-stopped
-#    ports:
-#      - 9090:9090
-#    depends_on:
-#      - mysqldb
-  
-  jenkins:
-    image: jenkinsci/blueocean:latest
-    container_name: jenkins
+  spring_app:
+    image: "tpachat"
+    container_name: tpachat
+    restart: unless-stopped
     ports:
-     - 8080:8080
-    volumes:
-      - /home/vagrant/jenkins:/var/jenkins_home
-      - ../../var/run/docker.sock:/var/run/docker.sock
-    restart: on-failure
+      - 9091:9091
+    depends_on:
+      - mysqldb
+  
+#  jenkins:
+#    image: jenkinsci/blueocean:latest
+#    container_name: jenkins
+#    ports:
+#     - 8080:8080
+#    volumes:
+#      - /home/vagrant/jenkins:/var/jenkins_home
+#      - ../../var/run/docker.sock:/var/run/docker.sock
+#    restart: on-failure
   
 #  nexus:
 #    image: sonatype/nexus3
