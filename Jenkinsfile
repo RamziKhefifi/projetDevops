@@ -15,23 +15,6 @@ pipeline {
    
         
         
-        stage('MNV CLEAN') {
-            steps {
-                sh 'mvn clean'
-            }
-        }
-       
-        stage ('Maven Compile') {
-            steps {
-                sh "mvn compile"
-            }
-        }
-        
-        stage ('créer artifact') {
-            steps {
-                sh "mvn package"
-            }
-        }
         
         
        
