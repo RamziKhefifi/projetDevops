@@ -10,6 +10,15 @@ pipeline {
                 //credentialsId: 'accgithubjenkins';
             }
         }
+        
+        stage('MNV CLEAN') 
+        
+        { steps 
+         { 
+         sh 'mvn clean' 
+         
+         } 
+        }
        
        
    
