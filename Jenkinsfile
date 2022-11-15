@@ -31,6 +31,12 @@ pipeline {
                 sh "mvn package"
             }
             }
+        
+        stage('BUILDING IMAGE'){
+          steps 
+            sh 'docker build -t tpachat .'
+    }
+    
       
        
    
