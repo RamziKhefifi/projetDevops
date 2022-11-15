@@ -32,12 +32,13 @@ pipeline {
             }
             }
         
-        stage('BUILDING IMAGE'){
-          steps 
+         stage('BUILDING IMAGE'){
+          steps {
+           
             sh 'docker build -t tpachat .'
     }
     
-    }
+}
        
    
         
