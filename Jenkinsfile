@@ -37,7 +37,7 @@ pipeline {
             sh 'docker build -t tpachat .'
     }
     
-      
+    }
        
    
         
